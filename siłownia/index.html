@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siłownia</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: Poppins
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100">
+
+    <header class="flex justify-between p-6 bg-green-700 text-white">
+        <h1 class="font-bold">PowerGym</h1>
+        <nav class="space-x-6">
+            <a href="#">Zajęcia</a>
+            <a href="#">Trenerzy</a>
+            <a href="#">Kontakt</a>
+        </nav>
+    </header>
+
+    <section class="h-screen flex items-center justify-center text-white"
+        style="background:url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b') center/cover">
+        <div class="bg-green-900/70 p-10 text-center rounded">
+            <h2 class="text-4xl mb-4">Trenuj mocniej</h2>
+            <button onclick="join()" class="bg-white text-green-700 px-6 py-3 rounded-full">Dołącz</button>
+        </div>
+    </section>
+
+    <section class="p-10 text-center">
+        <h2 class="text-3xl mb-6">Zajęcia</h2>
+        <p>Siłowe, cardio, trening personalny</p>
+    </section>
+
+    <section class="p-10 text-center bg-white">
+        <h2 class="text-3xl mb-6">Trenerzy</h2>
+        <p>Doświadczeni i certyfikowani</p>
+    </section>
+
+    <section class="p-10 text-center">
+        <h2 class="text-3xl mb-4">Kontakt</h2>
+        <p>email@gym.pl</p>
+    </section>
+
+    <script>
+        function join() {
+            alert("Witaj w PowerGym!");
+        }
+    </script>
+
+    <!-- DODAJ TE SEKCJE NA DOLE -->
+
+    <section class="p-10 bg-white text-center">
+        <h2 class="text-3xl mb-6">Trenerzy</h2>
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="p-6 shadow rounded">Jan Kowalski - Siła</div>
+            <div class="p-6 shadow rounded">Anna Nowak - Cardio</div>
+            <div class="p-6 shadow rounded">Marek Wiśniewski - Personal</div>
+        </div>
+    </section>
+
+    <section class="p-10 text-center">
+        <h2 class="text-3xl mb-6">Cennik</h2>
+        <p>Karnet miesięczny: 150 zł</p>
+    </section>
+
+    <section class="p-10 bg-green-700 text-white text-center">
+        <h2 class="text-3xl mb-4">Dołącz do nas</h2>
+        <button onclick="join()" class="bg-white text-green-700 px-6 py-3 rounded-full">Zapisz się</button>
+    </section>
+
+</body>
+
+</html>
