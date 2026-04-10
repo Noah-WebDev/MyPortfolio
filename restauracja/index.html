@@ -5,95 +5,319 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Olive Restaurant</title>
-
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="bg-gray-50">
+<body>
 
-    <!-- NAV -->
-    <header class="flex justify-between items-center px-10 py-6 bg-white shadow">
-        <h1 class="text-2xl font-bold">Olive</h1>
-        <nav class="space-x-8">
-            <a href="#">Menu</a>
-            <a href="#">O nas</a>
-            <a href="#">Kontakt</a>
+    <!-- HEADER -->
+    <header id="header">
+        <a href="#" class="logo">
+            <span class="logo-main">Olive</span>
+            <span class="logo-sub">Restaurant & Bar</span>
+        </a>
+        <nav>
+            <a href="#menu">Menu</a>
+            <a href="#atmosfera">O nas</a>
+            <a href="#opinie">Opinie</a>
+            <a href="#kontakt">Kontakt</a>
+            <a href="#rezerwacja" class="nav-reserve">Rezerwuj stolik</a>
         </nav>
     </header>
 
     <!-- HERO -->
-    <section class="h-screen flex items-center justify-center text-white"
-        style="background:url('https://images.unsplash.com/photo-1544025162-d76694265947') center/cover">
-        <div class="bg-black/60 p-12 text-center rounded-2xl max-w-xl">
-            <h2 class="text-5xl font-bold mb-4">Wyjątkowa kuchnia</h2>
-            <p class="mb-6 text-gray-200">Minimalizm, smak i elegancja</p>
-            <button class="bg-green-600 px-8 py-3 rounded-full hover:scale-105 transition">Rezerwuj stolik</button>
+    <section id="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <p class="hero-tag">Od 2018 roku w sercu miasta</p>
+            <h1 class="hero-title">
+                Wyjątkowa
+                <em>Kuchnia</em>
+            </h1>
+            <p class="hero-desc">Każde danie to historia — tworzona ze świeżych składników, pasji i szacunku do tradycji
+                włoskiej kuchni.</p>
+            <div class="hero-btns">
+                <a href="#rezerwacja" class="btn-primary">Zarezerwuj stolik</a>
+                <a href="#menu" class="btn-secondary">Zobacz menu</a>
+            </div>
+            <div class="hero-badges">
+                <div class="hero-badge">
+                    <span class="badge-num">12+</span>
+                    <span class="badge-label">Lat doświadczenia</span>
+                </div>
+                <div class="hero-badge">
+                    <span class="badge-num">800+</span>
+                    <span class="badge-label">Zadowolonych gości</span>
+                </div>
+                <div class="hero-badge">
+                    <span class="badge-num">30+</span>
+                    <span class="badge-label">Dań w menu</span>
+                </div>
+            </div>
         </div>
     </section>
+
+    <!-- STRIP -->
+    <div class="olive-strip">
+        <span class="strip-item"><span class="strip-dot"></span>Świeże składniki</span>
+        <span class="strip-item"><span class="strip-dot"></span>Kuchnia otwarta</span>
+        <span class="strip-item"><span class="strip-dot"></span>Włoskie wina</span>
+        <span class="strip-item"><span class="strip-dot"></span>Rezerwacje online</span>
+    </div>
 
     <!-- MENU -->
-    <section class="py-20 px-10 max-w-5xl mx-auto text-center">
-        <h2 class="text-4xl mb-10 font-semibold">Menu</h2>
-
-        <div class="grid md:grid-cols-3 gap-10">
-            <div class="bg-white p-6 rounded-xl shadow">
-                <h3 class="font-bold mb-2">Makaron</h3>
-                <p class="text-gray-500">Domowe włoskie przepisy</p>
+    <section id="menu">
+        <div class="menu-layout">
+            <div class="menu-intro reveal">
+                <p class="section-eyebrow">Nasze menu</p>
+                <h2 class="section-title">Smaki <em>Włoch</em></h2>
+                <p>Każde danie przygotowujemy na miejscu, z produktów od lokalnych dostawców i importowanych włoskich
+                    specjałów.</p>
+                <a href="#rezerwacja" class="btn-primary">Zarezerwuj stolik</a>
             </div>
-
-            <div class="bg-white p-6 rounded-xl shadow">
-                <h3 class="font-bold mb-2">Stek</h3>
-                <p class="text-gray-500">Najwyższej jakości mięso</p>
-            </div>
-
-            <div class="bg-white p-6 rounded-xl shadow">
-                <h3 class="font-bold mb-2">Desery</h3>
-                <p class="text-gray-500">Eleganckie i lekkie</p>
+            <div class="menu-categories reveal">
+                <div>
+                    <h3 class="menu-category-title">Makarony</h3>
+                    <div class="menu-item">
+                        <div class="menu-item-info">
+                            <div class="menu-item-name">Spaghetti Carbonara</div>
+                            <div class="menu-item-desc">Jajko, guanciale, pecorino, czarny pieprz</div>
+                        </div>
+                        <span class="menu-item-price">42 zł</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-info">
+                            <div class="menu-item-name">Tagliatelle al Ragù</div>
+                            <div class="menu-item-desc">Domowy makaron, wolno duszony sos bolognese</div>
+                        </div>
+                        <span class="menu-item-price">46 zł</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-info">
+                            <div class="menu-item-name">Pappardelle ai Funghi</div>
+                            <div class="menu-item-desc">Leśne grzyby, truflowe olio, parmezan</div>
+                        </div>
+                        <span class="menu-item-price">52 zł</span>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="menu-category-title">Steki & Mięsa</h3>
+                    <div class="menu-item">
+                        <div class="menu-item-info">
+                            <div class="menu-item-name">Bistecca alla Fiorentina</div>
+                            <div class="menu-item-desc">Stek T-bone, zioła prowansalskie, masło ziołowe</div>
+                        </div>
+                        <span class="menu-item-price">89 zł</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-info">
+                            <div class="menu-item-name">Pollo al Limone</div>
+                            <div class="menu-item-desc">Pierś z kurczaka, kapary, cytryna, natka</div>
+                        </div>
+                        <span class="menu-item-price">54 zł</span>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="menu-category-title">Desery</h3>
+                    <div class="menu-item">
+                        <div class="menu-item-info">
+                            <div class="menu-item-name">Tiramisù della Casa</div>
+                            <div class="menu-item-desc">Klasyczny przepis, mascarpone, savoiardi</div>
+                        </div>
+                        <span class="menu-item-price">28 zł</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-info">
+                            <div class="menu-item-name">Panna Cotta ai Frutti</div>
+                            <div class="menu-item-desc">Wanilia, coulis z malin i truskawek</div>
+                        </div>
+                        <span class="menu-item-price">24 zł</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- IMAGE SECTION (ważne — robi klimat) -->
-    <section class="h-[400px] bg-cover bg-center"
-        style="background:url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0') center/cover">
+    <!-- ATMOSPHERE -->
+    <section id="atmosfera">
+        <div class="atm-images">
+            <div class="atm-img">
+                <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800" alt="Restauracja">
+            </div>
+            <div class="atm-img">
+                <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800" alt="Danie">
+            </div>
+        </div>
+        <div class="atm-content">
+            <div class="reveal">
+                <p class="section-eyebrow">Nasza historia</p>
+                <h2 class="section-title">Pasja <em>& Smak</em></h2>
+                <p>Olive to miejsce, gdzie czas zwalnia. Stworzyliśmy przestrzeń, w której każdy detal — od oświetlenia
+                    po dobór muzyki — buduje wyjątkową atmosferę.</p>
+                <p>Nasz szef kuchni, Marco, gotuje od 20 lat. Przepisy przywiezione z Toskanii łączy z lokalnymi
+                    produktami, tworząc menu, które zaskakuje i wzrusza.</p>
+                <div class="atm-features">
+                    <div class="atm-feature">
+                        <div class="atm-feature-icon"></div>
+                        <div class="atm-feature-title">Świeże składniki</div>
+                        <div class="atm-feature-desc">Codzienne dostawy od lokalnych rolników</div>
+                    </div>
+                    <div class="atm-feature">
+                        <div class="atm-feature-icon"></div>
+                        <div class="atm-feature-title">Włoskie wina</div>
+                        <div class="atm-feature-desc">Ponad 40 etykiet z najlepszych regionów</div>
+                    </div>
+                    <div class="atm-feature">
+                        <div class="atm-feature-icon"></div>
+                        <div class="atm-feature-title">Kuchnia otwarta</div>
+                        <div class="atm-feature-desc">Obserwuj jak powstają Twoje dania</div>
+                    </div>
+                    <div class="atm-feature">
+                        <div class="atm-feature-icon"></div>
+                        <div class="atm-feature-title">Wieczory tematyczne</div>
+                        <div class="atm-feature-desc">Co piątek kolacja przy muzyce na żywo</div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- ABOUT -->
-    <section class="py-20 px-10 text-center max-w-3xl mx-auto">
-        <h2 class="text-4xl mb-6">O nas</h2>
-        <p class="text-gray-600">
-            Łączymy prostotę z elegancją, tworząc wyjątkowe doświadczenia kulinarne.
-            Każde danie przygotowywane jest z dbałością o detale i jakość składników.
-        </p>
+    <!-- TESTIMONIALS -->
+    <section id="opinie">
+        <div class="opinie-header reveal">
+            <p class="section-eyebrow">Opinie gości</p>
+            <h2 class="section-title">Co mówią <em>Goście</em></h2>
+        </div>
+        <div class="opinie-grid reveal">
+            <div class="opinia">
+                <div class="opinia-stars">★★★★★</div>
+                <p class="opinia-text">Carbonara jak u mamy we Włoszech. Atmosfera niesamowita, obsługa na najwyższym
+                    poziomie. Wrócimy na pewno!</p>
+                <div class="opinia-author">Anna K.</div>
+                <div class="opinia-date">Marzec 2026</div>
+            </div>
+            <div class="opinia">
+                <div class="opinia-stars">★★★★★</div>
+                <p class="opinia-text">Byliśmy tu na rocznicę i to było idealne miejsce. Ciepła atmosfera, pyszne
+                    jedzenie i wino. Polecam każdemu.</p>
+                <div class="opinia-author">Marcin & Ewa</div>
+                <div class="opinia-date">Luty 2026</div>
+            </div>
+            <div class="opinia">
+                <div class="opinia-stars">★★★★★</div>
+                <p class="opinia-text">Tiramisù to absolutny hit! Lepszego nie jadłem nigdzie w Polsce. Widać że robione
+                    z sercem i dobrych składników.</p>
+                <div class="opinia-author">Piotr W.</div>
+                <div class="opinia-date">Styczeń 2026</div>
+            </div>
+        </div>
     </section>
 
-    <!-- CTA -->
-    <section class="bg-green-700 text-white text-center py-20">
-        <h2 class="text-4xl mb-6">Zarezerwuj stolik już dziś</h2>
-        <button class="bg-white text-green-700 px-8 py-3 rounded-full hover:scale-105 transition">
-            Rezerwacja
-        </button>
+    <!-- RESERVATION -->
+    <section id="rezerwacja">
+        <div class="res-image"></div>
+        <div class="res-form-wrap">
+            <div class="reveal">
+                <p class="section-eyebrow">Rezerwacje</p>
+                <h2 class="section-title">Zarezerwuj <em>Stolik</em></h2>
+                <p class="res-subtitle">Wypełnij formularz, a potwierdzimy rezerwację w ciągu 2 godzin.</p>
+                <form class="res-form" onsubmit="handleBooking(event)">
+                    <div class="form-row">
+                        <input type="text" placeholder="Imię i nazwisko" required>
+                        <input type="tel" placeholder="Telefon" required>
+                    </div>
+                    <div class="form-row">
+                        <input type="date" required>
+                        <input type="time" value="19:00" required>
+                    </div>
+                    <select required>
+                        <option value="" disabled selected>Liczba osób</option>
+                        <option>1 osoba</option>
+                        <option>2 osoby</option>
+                        <option>3–4 osoby</option>
+                        <option>5–6 osób</option>
+                        <option>7+ osób (impreza)</option>
+                    </select>
+                    <input type="text" placeholder="Specjalne życzenia (opcjonalnie)">
+                    <button type="submit" class="res-submit">Zarezerwuj stolik</button>
+                </form>
+            </div>
+        </div>
     </section>
 
     <!-- CONTACT -->
-    <section class="py-20 text-center">
-        <h2 class="text-3xl mb-4">Kontakt</h2>
-        <p>ul. Przykładowa 10, Warszawa</p>
-        <p>+48 123 456 789</p>
+    <section id="kontakt">
+        <div class="contact-block reveal">
+            <h3 class="contact-title">Znajdź nas</h3>
+            <span class="contact-label">Adres</span>
+            <span class="contact-value">ul. Przykładowa 10<br>Poznań, 61-701</span>
+        </div>
+        <div class="contact-block reveal">
+            <h3 class="contact-title">Kontakt</h3>
+            <span class="contact-label">Telefon</span>
+            <span class="contact-value">+48 123 456 789</span>
+            <span class="contact-label" style="margin-top:1rem;">Email</span>
+            <span class="contact-value">kontakt@olive-restaurant.pl</span>
+        </div>
+        <div class="contact-block reveal">
+            <h3 class="contact-title">Godziny otwarcia</h3>
+            <span class="contact-value">
+                Pon – Czw: 12:00 – 22:00<br>
+                Pią – Sob: 12:00 – 23:00<br>
+                Niedziela: 13:00 – 21:00
+            </span>
+        </div>
     </section>
 
     <!-- FOOTER -->
-    <footer class="text-center py-6 bg-black text-white">
-        © 2026 Olive Restaurant
+    <footer>
+        <div class="footer-logo">Olive</div>
+        <div class="footer-copy">© 2026 Olive Ristorante. Wszelkie prawa zastrzeżone.</div>
+        <div class="footer-made">Strona wykonana przez <a href="https://noah-webdev.github.io/MyPortfolio">Noah</a>
+        </div>
     </footer>
 
+    <!-- MODAL -->
+    <div class="modal-overlay" id="modal">
+        <div class="modal">
+            <div class="modal-leaf">🌿</div>
+            <h3>Dziękujemy!</h3>
+            <p>Twoja rezerwacja została przyjęta. Potwierdzimy termin telefonicznie w ciągu 2 godzin.</p>
+            <button class="modal-close" onclick="closeModal()">Zamknij</button>
+        </div>
+    </div>
+
+    <script>
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('scrolled', window.scrollY > 60);
+        });
+
+        const reveals = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('visible');
+                    observer.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        reveals.forEach(r => observer.observe(r));
+
+        function handleBooking(e) {
+            e.preventDefault();
+            document.getElementById('modal').classList.add('open');
+        }
+
+        function closeModal() {
+            document.getElementById('modal').classList.remove('open');
+        }
+
+        document.getElementById('modal').addEventListener('click', function (e) {
+            if (e.target === this) closeModal();
+        });
+    </script>
 </body>
 
 </html>
