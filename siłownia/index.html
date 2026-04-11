@@ -1,80 +1,331 @@
 <!DOCTYPE html>
 <html lang="pl">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Siłownia</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: Poppins
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PowerGym — Trenuj Mocniej</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+<body>
 
-<body class="bg-gray-100">
+  <!-- HEADER -->
+  <header id="header">
+    <a href="#" class="logo">
+      <span class="logo-main">Power</span><span class="logo-accent">Gym</span>
+    </a>
+    <nav>
+      <a href="#zajecia">Zajęcia</a>
+      <a href="#trenerzy">Trenerzy</a>
+      <a href="#cennik">Cennik</a>
+      <a href="#grafik">Grafik</a>
+      <a href="#cta" class="nav-cta">Dołącz teraz</a>
+    </nav>
+  </header>
 
-    <header class="flex justify-between p-6 bg-green-700 text-white">
-        <h1 class="font-bold">PowerGym</h1>
-        <nav class="space-x-6">
-            <a href="#">Zajęcia</a>
-            <a href="#">Trenerzy</a>
-            <a href="#">Kontakt</a>
-        </nav>
-    </header>
-
-    <section class="h-screen flex items-center justify-center text-white"
-        style="background:url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b') center/cover">
-        <div class="bg-green-900/70 p-10 text-center rounded">
-            <h2 class="text-4xl mb-4">Trenuj mocniej</h2>
-            <button onclick="join()" class="bg-white text-green-700 px-6 py-3 rounded-full">Dołącz</button>
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Najlepsze siłownie w mieście</p>
+      <h1 class="hero-title">
+        TRENUJ<br><span class="line-red">MOCNIEJ</span>
+      </h1>
+      <div class="hero-bottom">
+        <p class="hero-desc">Nowoczesny sprzęt, certyfikowani trenerzy i atmosfera, która napędza do działania. Twój cel — nasza misja.</p>
+        <div class="hero-btns">
+          <a href="#cta" class="btn-primary">Dołącz do nas</a>
+          <a href="#zajecia" class="btn-secondary">Zobacz zajęcia</a>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <section class="p-10 text-center">
-        <h2 class="text-3xl mb-6">Zajęcia</h2>
-        <p>Siłowe, cardio, trening personalny</p>
-    </section>
+  <!-- STATS -->
+  <div class="stats-bar reveal">
+    <div class="stat-item">
+      <div class="stat-num">500+</div>
+      <div class="stat-label">Aktywnych członków</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">15+</div>
+      <div class="stat-label">Rodzajów zajęć</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">8</div>
+      <div class="stat-label">Certyfikowanych trenerów</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">6:00</div>
+      <div class="stat-label">Otwarte od rana</div>
+    </div>
+  </div>
 
-    <section class="p-10 text-center bg-white">
-        <h2 class="text-3xl mb-6">Trenerzy</h2>
-        <p>Doświadczeni i certyfikowani</p>
-    </section>
+  <!-- CLASSES -->
+  <section id="zajecia">
+    <div class="zajecia-header reveal">
+      <div>
+        <p class="section-eyebrow">Co oferujemy</p>
+        <h2 class="section-title">Nasze <span class="accent">Zajęcia</span></h2>
+      </div>
+      <a href="#grafik" class="btn-secondary">Zobacz grafik</a>
+    </div>
+    <div class="zajecia-grid reveal">
+      <div class="zajecia-card">
+        <div class="zajecia-icon">🏋️</div>
+        <h3 class="zajecia-name">Trening Siłowy</h3>
+        <p class="zajecia-desc">Nowoczesna strefa wolnych ciężarów i maszyn. Buduj siłę i masę mięśniową pod okiem specjalistów.</p>
+        <div class="zajecia-meta">
+          <span class="zajecia-tag hot">Popularne</span>
+          <span class="zajecia-tag">60 min</span>
+        </div>
+      </div>
+      <div class="zajecia-card">
+        <div class="zajecia-icon">🔥</div>
+        <h3 class="zajecia-name">Cardio HIIT</h3>
+        <p class="zajecia-desc">Intensywny trening interwałowy spalający do 800 kcal w jednej sesji. Gwarantowany efekt.</p>
+        <div class="zajecia-meta">
+          <span class="zajecia-tag hot">Gorące</span>
+          <span class="zajecia-tag">45 min</span>
+        </div>
+      </div>
+      <div class="zajecia-card">
+        <div class="zajecia-icon">🥊</div>
+        <h3 class="zajecia-name">Boks & MMA</h3>
+        <p class="zajecia-desc">Trening bokserski dla każdego poziomu zaawansowania. Sprawność, refleks i kondycja.</p>
+        <div class="zajecia-meta">
+          <span class="zajecia-tag">90 min</span>
+        </div>
+      </div>
+      <div class="zajecia-card">
+        <div class="zajecia-icon">🧘</div>
+        <h3 class="zajecia-name">Stretching & Yoga</h3>
+        <p class="zajecia-desc">Regeneracja i elastyczność. Idealne uzupełnienie każdego planu treningowego.</p>
+        <div class="zajecia-meta">
+          <span class="zajecia-tag">60 min</span>
+        </div>
+      </div>
+      <div class="zajecia-card">
+        <div class="zajecia-icon">🚴</div>
+        <h3 class="zajecia-name">Spinning</h3>
+        <p class="zajecia-desc">Grupowe zajęcia na rowerach stacjonarnych przy głośnej muzyce. Energia i motywacja gwarantowana.</p>
+        <div class="zajecia-meta">
+          <span class="zajecia-tag hot">Popularne</span>
+          <span class="zajecia-tag">45 min</span>
+        </div>
+      </div>
+      <div class="zajecia-card">
+        <div class="zajecia-icon">👤</div>
+        <h3 class="zajecia-name">Trening Personalny</h3>
+        <p class="zajecia-desc">Indywidualny plan treningowy dopasowany do Twoich celów. Jeden na jeden z trenerem.</p>
+        <div class="zajecia-meta">
+          <span class="zajecia-tag">60 min</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <section class="p-10 text-center">
-        <h2 class="text-3xl mb-4">Kontakt</h2>
-        <p>email@gym.pl</p>
-    </section>
+  <!-- TRAINERS -->
+  <section id="trenerzy">
+    <div class="reveal">
+      <p class="section-eyebrow">Nasz zespół</p>
+      <h2 class="section-title">Twoi <span class="accent">Trenerzy</span></h2>
+    </div>
+    <div class="trenerzy-grid reveal">
+      <div class="trener-card">
+        <img class="trener-img" src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600" alt="Trener Jan">
+        <div class="trener-info">
+          <div class="trener-name">Jan Kowalski</div>
+          <div class="trener-spec">Siła & Kulturystyka</div>
+          <p class="trener-bio">10 lat doświadczenia, mistrz Polski w wyciskaniu. Specjalizuje się w treningu siłowym i budowaniu masy.</p>
+        </div>
+      </div>
+      <div class="trener-card">
+        <img class="trener-img" src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=600" alt="Trener Anna">
+        <div class="trener-info">
+          <div class="trener-name">Anna Nowak</div>
+          <div class="trener-spec">Cardio & HIIT</div>
+          <p class="trener-bio">Certyfikowana instruktorka fitness i dietetyk. Pomogła setkom klientów osiągnąć wymarzoną sylwetkę.</p>
+        </div>
+      </div>
+      <div class="trener-card">
+        <img class="trener-img" src="https://images.unsplash.com/photo-1567013127542-490d757e51fc?w=600" alt="Trener Marek">
+        <div class="trener-info">
+          <div class="trener-name">Marek Wiśniewski</div>
+          <div class="trener-spec">Trening Personalny & MMA</div>
+          <p class="trener-bio">Były zawodnik MMA, trener personalny z licencją UEFA. Tworzy plany dla sportowców i amatorów.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <script>
-        function join() {
-            alert("Witaj w PowerGym!");
+  <!-- PRICING -->
+  <section id="cennik">
+    <div class="cennik-header reveal">
+      <p class="section-eyebrow">Członkostwo</p>
+      <h2 class="section-title">Wybierz <span class="accent">Plan</span></h2>
+    </div>
+    <div class="cennik-grid reveal">
+      <div class="cennik-card">
+        <div class="cennik-name">Basic</div>
+        <div class="cennik-price">99</div>
+        <div class="cennik-unit">ZŁ / MIESIĄC</div>
+        <ul class="cennik-features">
+          <li>Dostęp do siłowni</li>
+          <li>Szatnia i prysznice</li>
+          <li>Strefa cardio</li>
+          <li>Godziny 6:00–22:00</li>
+        </ul>
+        <a href="#cta" class="btn-secondary" style="width:100%; text-align:center;">Wybierz</a>
+      </div>
+      <div class="cennik-card featured">
+        <div class="cennik-name">Pro</div>
+        <div class="cennik-price">149</div>
+        <div class="cennik-unit">ZŁ / MIESIĄC</div>
+        <ul class="cennik-features">
+          <li>Wszystko z Basic</li>
+          <li>Nielimitowane zajęcia grupowe</li>
+          <li>1x trening z trenerem</li>
+          <li>Dostęp do sauny</li>
+          <li>Aplikacja treningowa</li>
+        </ul>
+        <a href="#cta" class="btn-primary" style="width:100%; text-align:center;">Wybierz</a>
+      </div>
+      <div class="cennik-card">
+        <div class="cennik-name">Elite</div>
+        <div class="cennik-price">249</div>
+        <div class="cennik-unit">ZŁ / MIESIĄC</div>
+        <ul class="cennik-features">
+          <li>Wszystko z Pro</li>
+          <li>4x trening personalny</li>
+          <li>Plan żywieniowy</li>
+          <li>Strefa VIP</li>
+          <li>Priorytetowa rezerwacja</li>
+        </ul>
+        <a href="#cta" class="btn-secondary" style="width:100%; text-align:center;">Wybierz</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCHEDULE -->
+  <section id="grafik">
+    <div class="grafik-header reveal">
+      <p class="section-eyebrow">Tygodniowy plan</p>
+      <h2 class="section-title">Grafik <span class="accent">Zajęć</span></h2>
+    </div>
+    <table class="grafik-table reveal">
+      <thead>
+        <tr>
+          <th>Godzina</th>
+          <th>Poniedziałek</th>
+          <th>Środa</th>
+          <th>Piątek</th>
+          <th>Sobota</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>7:00</td>
+          <td>Trening Siłowy</td>
+          <td>Cardio HIIT <span class="grafik-badge">HOT</span></td>
+          <td>Trening Siłowy</td>
+          <td>Spinning</td>
+        </tr>
+        <tr>
+          <td>10:00</td>
+          <td>Yoga & Stretching</td>
+          <td>Spinning</td>
+          <td>Yoga & Stretching</td>
+          <td>Cardio HIIT <span class="grafik-badge">HOT</span></td>
+        </tr>
+        <tr>
+          <td>17:00</td>
+          <td>Cardio HIIT <span class="grafik-badge">HOT</span></td>
+          <td>Boks & MMA</td>
+          <td>Spinning</td>
+          <td>Boks & MMA</td>
+        </tr>
+        <tr>
+          <td>19:00</td>
+          <td>Spinning</td>
+          <td>Trening Siłowy</td>
+          <td>Cardio HIIT <span class="grafik-badge">HOT</span></td>
+          <td>—</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- CTA -->
+  <section id="cta">
+    <div class="reveal">
+      <h2 class="cta-title">GOTOWY NA<br><span class="accent">ZMIANY?</span></h2>
+      <p class="cta-sub">Dołącz do ponad 500 członków i zacznij trenować już dziś. Pierwsza wizyta gratis.</p>
+      <button class="btn-primary" onclick="document.getElementById('modal').classList.add('open')">
+        Zapisz się teraz
+      </button>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="kontakt">
+    <div class="kontakt-block reveal">
+      <div class="kontakt-label">Adres</div>
+      <div class="kontakt-value">ul. Sportowa 5<br>Twoje Miasto, 00-000</div>
+    </div>
+    <div class="kontakt-block reveal">
+      <div class="kontakt-label">Kontakt</div>
+      <div class="kontakt-value">+48 987 654 321<br>info@powergym.pl</div>
+    </div>
+    <div class="kontakt-block reveal">
+      <div class="kontakt-label">Godziny otwarcia</div>
+      <div class="kontakt-value">
+        Pon – Pią: 6:00 – 23:00<br>
+        Sob – Niedz: 8:00 – 21:00
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">Power<span>Gym</span></div>
+    <div class="footer-copy">© 2026 PowerGym. Wszelkie prawa zastrzeżone.</div>
+    <div class="footer-made">Strona wykonana przez <a href="https://noah-webdev.github.io/MyPortfolio">Noah</a></div>
+  </footer>
+
+  <!-- MODAL -->
+  <div class="modal-overlay" id="modal">
+    <div class="modal">
+      <h3>WITAJ W <span>POWERGYM</span></h3>
+      <p>Twoje zgłoszenie zostało przyjęte! Skontaktujemy się z Tobą w ciągu 24 godzin, aby omówić szczegóły członkostwa.</p>
+      <button class="modal-close" onclick="closeModal()">Zamknij</button>
+    </div>
+  </div>
+
+  <script>
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
         }
-    </script>
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(r => observer.observe(r));
 
-    <!-- DODAJ TE SEKCJE NA DOLE -->
+    function closeModal() {
+      document.getElementById('modal').classList.remove('open');
+    }
 
-    <section class="p-10 bg-white text-center">
-        <h2 class="text-3xl mb-6">Trenerzy</h2>
-        <div class="grid md:grid-cols-3 gap-6">
-            <div class="p-6 shadow rounded">Jan Kowalski - Siła</div>
-            <div class="p-6 shadow rounded">Anna Nowak - Cardio</div>
-            <div class="p-6 shadow rounded">Marek Wiśniewski - Personal</div>
-        </div>
-    </section>
-
-    <section class="p-10 text-center">
-        <h2 class="text-3xl mb-6">Cennik</h2>
-        <p>Karnet miesięczny: 150 zł</p>
-    </section>
-
-    <section class="p-10 bg-green-700 text-white text-center">
-        <h2 class="text-3xl mb-4">Dołącz do nas</h2>
-        <button onclick="join()" class="bg-white text-green-700 px-6 py-3 rounded-full">Zapisz się</button>
-    </section>
-
+    document.getElementById('modal').addEventListener('click', function(e) {
+      if (e.target === this) closeModal();
+    });
+  </script>
 </body>
-
 </html>
