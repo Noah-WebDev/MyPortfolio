@@ -4,59 +4,926 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Noah — Web Developer</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg: #f5f2ee;
+      --bg2: #efeae3;
+      --white: #faf8f5;
+      --text: #1c1a17;
+      --text-muted: #7a7068;
+      --text-light: #b0a89e;
+      --green: #3d6b4f;
+      --green-bg: #e8f0eb;
+      --border: rgba(28,26,23,0.1);
+      --shadow: rgba(28,26,23,0.06);
+    }
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f9f9f7; color: #1a1a1a; }
-    .port-wrap { max-width: 680px; margin: 0 auto; padding: 3rem 1.5rem; }
-    .badge { display: inline-block; font-size: 12px; padding: 4px 12px; border-radius: 8px; background: #eaf3de; color: #3b6d11; margin-bottom: 1.5rem; font-weight: 500; }
-    .hero { margin-bottom: 2.5rem; }
-    .hero h1 { font-size: 28px; font-weight: 500; color: #1a1a1a; margin-bottom: 10px; }
-    .hero p { font-size: 16px; color: #555; line-height: 1.6; margin-bottom: 6px; }
-    .section-label { font-size: 12px; color: #999; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1rem; font-weight: 500; }
-    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-bottom: 2rem; }
-    .card { background: #fff; border: 1px solid #e8e8e5; border-radius: 12px; padding: 1.25rem; text-decoration: none; display: block; transition: border-color 0.15s; }
-    .card:hover { border-color: #bbb; }
-    .card-icon { width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 12px; font-size: 18px; }
-    .card h3 { font-size: 15px; font-weight: 500; color: #1a1a1a; margin-bottom: 4px; }
-    .card p { font-size: 13px; color: #777; line-height: 1.5; margin-bottom: 12px; }
-    .card-link { font-size: 13px; color: #1a6fb5; text-decoration: none; }
-    hr { border: none; border-top: 1px solid #e8e8e5; margin: 2rem 0; }
-    .contact { font-size: 14px; color: #555; }
-    .contact a { color: #1a6fb5; text-decoration: none; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* NAV */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 4rem;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .nav-logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.2rem;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .nav-links { display: flex; gap: 2rem; align-items: center; }
+
+    .nav-links a {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    .nav-btn {
+      background: var(--text) !important;
+      color: var(--white) !important;
+      padding: 0.5rem 1.25rem;
+      border-radius: 100px;
+      font-size: 0.82rem !important;
+      transition: opacity 0.2s !important;
+    }
+
+    .nav-btn:hover { opacity: 0.8; }
+
+    /* HERO */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: calc(100vh - 61px);
+      max-height: 800px;
+    }
+
+    .hero-left {
+      padding: 5rem 4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--green);
+      background: var(--green-bg);
+      padding: 5px 12px;
+      border-radius: 100px;
+      margin-bottom: 2rem;
+      width: fit-content;
+    }
+
+    .hero-badge::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--green);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.8); }
+    }
+
+    .hero-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.5rem, 4.5vw, 4rem);
+      font-weight: 400;
+      line-height: 1.1;
+      color: var(--text);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--text-muted);
+    }
+
+    .hero-desc {
+      font-size: 1rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+      font-weight: 300;
+      max-width: 420px;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-btns { display: flex; gap: 1rem; align-items: center; margin-bottom: 4rem; }
+
+    .btn-dark {
+      background: var(--text);
+      color: var(--white);
+      padding: 0.85rem 2rem;
+      border-radius: 100px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: opacity 0.2s;
+      font-family: 'DM Sans', sans-serif;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-dark:hover { opacity: 0.75; }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text-muted);
+      padding: 0.85rem 2rem;
+      border-radius: 100px;
+      font-size: 0.85rem;
+      font-weight: 400;
+      text-decoration: none;
+      border: 1px solid var(--border);
+      transition: all 0.2s;
+    }
+
+    .btn-outline:hover { border-color: var(--text-muted); color: var(--text); }
+
+    .hero-stats {
+      display: flex;
+      gap: 2.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .hero-stat-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.75rem;
+      color: var(--text);
+      line-height: 1;
+    }
+
+    .hero-stat-label {
+      font-size: 0.72rem;
+      color: var(--text-light);
+      margin-top: 4px;
+      letter-spacing: 0.03em;
+    }
+
+    /* HERO RIGHT — image collage */
+    .hero-right {
+      position: relative;
+      overflow: hidden;
+      background: var(--bg2);
+    }
+
+    .hero-img-main {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.92) saturate(0.9);
+    }
+
+    .hero-img-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(245,242,238,0.15), transparent);
+    }
+
+    .hero-card {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 2rem;
+      background: var(--white);
+      border-radius: 16px;
+      padding: 1rem 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 8px 32px var(--shadow);
+      max-width: 220px;
+    }
+
+    .hero-card-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: var(--bg2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .hero-card-text strong {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .hero-card-text span {
+      font-size: 0.72rem;
+      color: var(--text-light);
+    }
+
+    /* SECTION LABEL */
+    .section-label {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 2.5rem;
+    }
+
+    /* PROJECTS */
+    #projekty {
+      padding: 6rem 4rem;
+      background: var(--white);
+    }
+
+    .projects-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 3rem;
+    }
+
+    .projects-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.25rem;
+      font-weight: 400;
+      color: var(--text);
+      line-height: 1.2;
+    }
+
+    .projects-title em { font-style: italic; color: var(--text-muted); }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      background: var(--bg);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      transition: transform 0.3s, box-shadow 0.3s;
+      text-decoration: none;
+      display: block;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px var(--shadow);
+    }
+
+    .project-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+      filter: saturate(0.85);
+      transition: filter 0.4s;
+    }
+
+    .project-card:hover .project-img { filter: saturate(1); }
+
+    .project-info { padding: 1.25rem; }
+
+    .project-tag {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 6px;
+    }
+
+    .project-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.2rem;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .project-desc {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      font-weight: 300;
+      margin-bottom: 1rem;
+    }
+
+    .project-link {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* SKILLS */
+    #umiejetnosci {
+      padding: 6rem 4rem;
+      background: var(--bg);
+    }
+
+    .skills-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .skills-text .section-label { margin-bottom: 1rem; }
+
+    .skills-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.25rem;
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: 1.25rem;
+      color: var(--text);
+    }
+
+    .skills-title em { font-style: italic; color: var(--text-muted); }
+
+    .skills-desc {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+      font-weight: 300;
+      margin-bottom: 2rem;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .skill-item {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .skill-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: var(--bg2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .skill-name {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .skill-level {
+      font-size: 0.72rem;
+      color: var(--text-light);
+      margin-top: 2px;
+    }
+
+    /* PROCESS */
+    #proces {
+      padding: 6rem 4rem;
+      background: var(--text);
+    }
+
+    #proces .section-label { color: rgba(255,255,255,0.3); }
+
+    .proces-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.25rem;
+      font-weight: 400;
+      color: #fff;
+      margin-bottom: 3.5rem;
+      line-height: 1.2;
+    }
+
+    .proces-title em { font-style: italic; color: rgba(255,255,255,0.4); }
+
+    .proces-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+    }
+
+    .proces-step {
+      border-top: 1px solid rgba(255,255,255,0.12);
+      padding-top: 1.5rem;
+    }
+
+    .proces-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2rem;
+      color: rgba(255,255,255,0.15);
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+
+    .proces-name {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+
+    .proces-desc {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    /* CONTACT */
+    #kontakt {
+      padding: 6rem 4rem;
+      background: var(--white);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .kontakt-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.5rem;
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--text);
+      margin-bottom: 1.25rem;
+    }
+
+    .kontakt-title em { font-style: italic; color: var(--text-muted); }
+
+    .kontakt-desc {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+      font-weight: 300;
+      margin-bottom: 2rem;
+    }
+
+    .kontakt-detail {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 1rem;
+    }
+
+    .kontakt-detail-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: var(--bg2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+
+    .kontakt-detail-text {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .kontakt-detail-text a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .kontakt-form { display: flex; flex-direction: column; gap: 1rem; }
+
+    .kontakt-form input,
+    .kontakt-form textarea {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 0.9rem 1.1rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.88rem;
+      outline: none;
+      border-radius: 10px;
+      transition: border-color 0.2s;
+      resize: none;
+    }
+
+    .kontakt-form input::placeholder,
+    .kontakt-form textarea::placeholder { color: var(--text-light); }
+
+    .kontakt-form input:focus,
+    .kontakt-form textarea:focus { border-color: var(--text-muted); }
+
+    /* FOOTER */
+    footer {
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      padding: 2rem 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1rem;
+      color: var(--text-muted);
+    }
+
+    .footer-copy { font-size: 0.72rem; color: var(--text-light); }
+
+    .footer-links { display: flex; gap: 1.5rem; }
+
+    .footer-links a {
+      font-size: 0.72rem;
+      color: var(--text-light);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--text); }
+
+    /* MODAL */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(28,26,23,0.6);
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+
+    .modal-overlay.open { opacity: 1; pointer-events: all; }
+
+    .modal {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 3rem;
+      max-width: 420px;
+      width: 90%;
+      text-align: center;
+      transform: translateY(16px);
+      transition: transform 0.3s;
+    }
+
+    .modal-overlay.open .modal { transform: translateY(0); }
+
+    .modal-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+
+    .modal h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.75rem;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+    }
+
+    .modal p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 2rem;
+      font-weight: 300;
+    }
+
+    .modal-close {
+      background: var(--text);
+      border: none;
+      color: var(--white);
+      padding: 0.8rem 2rem;
+      border-radius: 100px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    .modal-close:hover { opacity: 0.75; }
+
+    /* REVEAL */
+    .reveal {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .hero { grid-template-columns: 1fr; max-height: none; }
+      .hero-left { padding: 3rem 1.5rem; }
+      .hero-right { height: 300px; }
+      #projekty, #umiejetnosci, #proces, #kontakt { padding: 4rem 1.5rem; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .skills-layout { grid-template-columns: 1fr; gap: 2rem; }
+      .proces-steps { grid-template-columns: 1fr 1fr; }
+      #kontakt { grid-template-columns: 1fr; gap: 3rem; }
+      footer { flex-direction: column; gap: 1rem; text-align: center; padding: 1.5rem; }
+      .projects-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+    }
   </style>
 </head>
 <body>
-  <div class="port-wrap">
-    <div class="hero">
-      <div class="badge">Dostępny do pracy</div>
-      <h1>Noah — web developer</h1>
-      <p>Tworzę nowoczesne strony internetowe dla lokalnych firm. HTML, CSS i JavaScript. Szybka realizacja, uczciwe ceny.</p>
-      <p style="font-size:14px; color:#999; margin-top: 6px;">Polska &nbsp;·&nbsp; Programista w trakcie nauki</p>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">Noah.</a>
+    <div class="nav-links">
+      <a href="#projekty">Projekty</a>
+      <a href="#umiejetnosci">Umiejętności</a>
+      <a href="#kontakt">Kontakt</a>
+      <a href="mailto:noahdevworks@gmail.com" class="nav-btn">Napisz do mnie</a>
     </div>
-    <p class="section-label">Przykładowe projekty</p>
-    <div class="cards">
-      <div class="card">
-        <div class="card-icon" style="background: #faeeda;">🍕</div>
-        <h3>Restauracja</h3>
-        <p>Strona restauracji z menu i danymi kontaktowymi</p>
-        <a class="card-link" href="https://noah-webdev.github.io/MyPortfolio/restauracja/" target="_blank">Zobacz stronę →</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-left reveal">
+      <div class="hero-badge">Dostępny do pracy</div>
+      <h1 class="hero-title">
+        Tworzę strony,<br>
+        które <em>sprzedają.</em>
+      </h1>
+      <p class="hero-desc">
+        Jestem młodym web developerem z Polski. Buduję nowoczesne strony dla lokalnych firm — szybko, tanio i z dbałością o każdy detal.
+      </p>
+      <div class="hero-btns">
+        <a href="#projekty" class="btn-dark">Zobacz projekty</a>
+        <a href="#kontakt" class="btn-outline">Skontaktuj się</a>
       </div>
-      <div class="card">
-        <div class="card-icon" style="background: #e1f5ee;">💈</div>
-        <h3>Fryzjer</h3>
-        <p>Strona salonu fryzjerskiego z galerią i rezerwacją</p>
-        <a class="card-link" href="https://noah-webdev.github.io/MyPortfolio/fryzjer" target="_blank">Zobacz stronę →</a>
-      </div>
-      <div class="card">
-        <div class="card-icon" style="background: #eeedfe;">💪</div>
-        <h3>Siłownia</h3>
-        <p>Strona siłowni z cennikiem i grafikiem zajęć</p>
-        <a class="card-link" href="https://github.com/Noah-WebDev/MyPortfolio/tree/main/si%C5%82ownia" target="_blank">Zobacz stronę →</a>
+      <div class="hero-stats">
+        <div>
+          <div class="hero-stat-num">3</div>
+          <div class="hero-stat-label">Szablony gotowe</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">HTML</div>
+          <div class="hero-stat-label">CSS · JavaScript</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">💬</div>
+          <div class="hero-stat-label">Szybka odpowiedź</div>
+        </div>
       </div>
     </div>
-    <hr>
-    <p class="section-label">Kontakt</p>
-    <p class="contact">Zainteresowany stroną dla swojej firmy? Napisz do mnie: <a href="mailto:noahmorre.09@gmail.com">noahmorre.09@gmail.com</a></p>
+    <div class="hero-right">
+      <img class="hero-img-main" src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200" alt="Coding">
+      <div class="hero-img-overlay"></div>
+      <div class="hero-card">
+        <div class="hero-card-icon">🚀</div>
+        <div class="hero-card-text">
+          <strong>Gotowy do pracy</strong>
+          <span>Pierwsze zlecenia już czekam</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projekty">
+    <div class="projects-header reveal">
+      <div>
+        <p class="section-label">Przykładowe projekty</p>
+        <h2 class="projects-title">Moje <em>szablony</em></h2>
+      </div>
+      <a href="https://github.com/Noah-WebDev/MyPortfolio" class="btn-outline" target="_blank">GitHub →</a>
+    </div>
+    <div class="projects-grid reveal">
+      <a href="https://noah-webdev.github.io/MyPortfolio/restauracja" target="_blank" class="project-card">
+        <img class="project-img" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800" alt="Restauracja">
+        <div class="project-info">
+          <div class="project-tag">Restauracja</div>
+          <div class="project-name">Olive Restaurant</div>
+          <p class="project-desc">Ciepła, włoska restauracja z pełnym menu, rezerwacją online i sekcją opinii.</p>
+          <div class="project-link">Zobacz projekt <span>→</span></div>
+        </div>
+      </a>
+      <a href="https://noah-webdev.github.io/MyPortfolio/fryzjer" target="_blank" class="project-card">
+        <img class="project-img" src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=800" alt="Fryzjer">
+        <div class="project-info">
+          <div class="project-tag">Salon fryzjerski</div>
+          <div class="project-name">Blask Fryzury</div>
+          <p class="project-desc">Luksusowy barber shop w stylu czarno-złotym z galerią, cennikiem i rezerwacją.</p>
+          <div class="project-link">Zobacz projekt <span>→</span></div>
+        </div>
+      </a>
+      <a href="https://noah-webdev.github.io/MyPortfolio/silownia" target="_blank" class="project-card">
+        <img class="project-img" src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800" alt="Siłownia">
+        <div class="project-info">
+          <div class="project-tag">Siłownia</div>
+          <div class="project-name">PowerGym</div>
+          <p class="project-desc">Industrialna siłownia z grafikiem zajęć, cennikiem i profilami trenerów.</p>
+          <div class="project-link">Zobacz projekt <span>→</span></div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="umiejetnosci">
+    <div class="skills-layout">
+      <div class="skills-text reveal">
+        <p class="section-label">Umiejętności</p>
+        <h2 class="skills-title">Czym <em>się zajmuję</em></h2>
+        <p class="skills-desc">
+          Uczę się programowania w szkole i na własną rękę. Swoją przygodę zacząłem od tworzenia modów do Minecrafta — teraz buduję strony dla firm.
+        </p>
+        <a href="#kontakt" class="btn-dark">Porozmawiajmy</a>
+      </div>
+      <div class="skills-grid reveal">
+        <div class="skill-item">
+          <div class="skill-icon">🎨</div>
+          <div>
+            <div class="skill-name">HTML & CSS</div>
+            <div class="skill-level">Mocna strona</div>
+          </div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-icon">⚡</div>
+          <div>
+            <div class="skill-name">JavaScript</div>
+            <div class="skill-level">W trakcie nauki</div>
+          </div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-icon">☕</div>
+          <div>
+            <div class="skill-name">Java</div>
+            <div class="skill-level">Minecraft mody</div>
+          </div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-icon">📱</div>
+          <div>
+            <div class="skill-name">Responsive</div>
+            <div class="skill-level">Mobile-first</div>
+          </div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-icon">🐙</div>
+          <div>
+            <div class="skill-name">Git & GitHub</div>
+            <div class="skill-level">Podstawy</div>
+          </div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-icon">🎯</div>
+          <div>
+            <div class="skill-name">Design</div>
+            <div class="skill-level">UI / layouty</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="proces">
+    <p class="section-label reveal">Jak pracuję</p>
+    <h2 class="proces-title reveal">Prosty <em>proces</em></h2>
+    <div class="proces-steps reveal">
+      <div class="proces-step">
+        <div class="proces-num">01</div>
+        <div class="proces-name">Rozmowa</div>
+        <p class="proces-desc">Piszesz do mnie, opowiadasz o firmie i czego potrzebujesz. Wszystko przez telefon lub email.</p>
+      </div>
+      <div class="proces-step">
+        <div class="proces-num">02</div>
+        <div class="proces-name">Projekt</div>
+        <p class="proces-desc">Przygotowuję wstępny wygląd strony i pokazuję Ci zanim zacznę kodować.</p>
+      </div>
+      <div class="proces-step">
+        <div class="proces-num">03</div>
+        <div class="proces-name">Realizacja</div>
+        <p class="proces-desc">Buduję stronę w HTML, CSS i JavaScript. Szybko i z dbałością o detale.</p>
+      </div>
+      <div class="proces-step">
+        <div class="proces-num">04</div>
+        <div class="proces-name">Wdrożenie</div>
+        <p class="proces-desc">Pomagam wgrać stronę na serwer i domenę. Strona gotowa do działania.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="kontakt">
+    <div class="reveal">
+      <p class="section-label">Kontakt</p>
+      <h2 class="kontakt-title">Zacznijmy <em>razem</em></h2>
+      <p class="kontakt-desc">
+        Masz firmę i potrzebujesz strony? A może masz pytania? Napisz do mnie — odpowiem szybko.
+      </p>
+      <div class="kontakt-detail">
+        <div class="kontakt-detail-icon">✉️</div>
+        <div class="kontakt-detail-text">
+          <a href="mailto:noahdevworks@gmail.com">noahdevworks@gmail.com</a>
+        </div>
+      </div>
+      <div class="kontakt-detail">
+        <div class="kontakt-detail-icon">📍</div>
+        <div class="kontakt-detail-text">Polska</div>
+      </div>
+      <div class="kontakt-detail">
+        <div class="kontakt-detail-icon">⏱️</div>
+        <div class="kontakt-detail-text">Odpowiadam w ciągu 24h</div>
+      </div>
+    </div>
+    <div class="reveal">
+      <form class="kontakt-form" onsubmit="handleContact(event)">
+        <input type="text" placeholder="Imię i nazwisko" required>
+        <input type="email" placeholder="Adres email" required>
+        <input type="text" placeholder="Temat (np. Strona dla restauracji)">
+        <textarea rows="5" placeholder="Napisz kilka słów o swoim projekcie..."></textarea>
+        <button type="submit" class="btn-dark">Wyślij wiadomość</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">Noah.</div>
+    <div class="footer-copy">© 2026 Noah. Wszelkie prawa zastrzeżone.</div>
+    <div class="footer-links">
+      <a href="https://github.com/Noah-WebDev" target="_blank">GitHub</a>
+      <a href="mailto:noahdevworks@gmail.com">Email</a>
+    </div>
+  </footer>
+
+  <!-- MODAL -->
+  <div class="modal-overlay" id="modal">
+    <div class="modal">
+      <div class="modal-icon">🎉</div>
+      <h3>Wiadomość wysłana!</h3>
+      <p>Dziękuję za kontakt. Odezwę się do Ciebie najszybciej jak mogę — zazwyczaj w ciągu 24 godzin.</p>
+      <button class="modal-close" onclick="document.getElementById('modal').classList.remove('open')">Zamknij</button>
+    </div>
   </div>
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+      });
+    }, { threshold: 0.08 });
+    reveals.forEach(r => observer.observe(r));
+
+    function handleContact(e) {
+      e.preventDefault();
+      document.getElementById('modal').classList.add('open');
+    }
+
+    document.getElementById('modal').addEventListener('click', function(e) {
+      if (e.target === this) this.classList.remove('open');
+    });
+  </script>
 </body>
 </html>
