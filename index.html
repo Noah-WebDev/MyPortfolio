@@ -339,14 +339,16 @@
 
     .cennik-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; max-width: 900px; margin: 0 auto; }
 
-    .cennik-card {
+   .cennik-card {
       background: var(--white);
       border: 1px solid var(--border);
       border-radius: 20px;
       padding: 2.5rem 2rem;
       position: relative;
       transition: transform 0.3s, box-shadow 0.3s;
-    }
+      display: flex;
+      flex-direction: column;
+}
 
     .cennik-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px var(--shadow); }
 
@@ -445,7 +447,8 @@
       cursor: pointer;
       background: transparent;
       width: 100%;
-    }
+      margin-top: auto;
+}
 
     .cennik-btn:hover { border-color: var(--text); }
 
